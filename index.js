@@ -15,11 +15,11 @@ The function should:
   Example createMenuItem('tacos', 8, 'Lunch') should return {name: 'tacos', price: 8, category: 'Lunch'}
 */
 
-function createMenuItem(name, price, object){
+function createMenuItem(name, price, category){
   const newMenu = {
     name: name,
     price: price,
-    object: object
+    category: category
   }
   return newMenu
 }
@@ -57,9 +57,9 @@ const burger = {
   price: 18, 
   category: "Lunch", 
   discount: function(string) {
-    if (string === "teacher") {
+    if (string === "teacher" || string === "student") {
       return this.price - (this.price * 0.25)
-    } else if (string === "student" || string === "public") {
+    } else if (string === "public") {
       return this.price - (this.price * 0.1)
     }
   } 
@@ -108,7 +108,6 @@ Write a function that creates an object with name, rating, feedback, add the new
   4. should return the resulting array
 */
 
-
 function addReview(array, name, rating, feedback){
   array.push({
     name: name,
@@ -131,8 +130,10 @@ Use the getReviewByIndex function below to do the following:
 */
 
 
-function getReviewByIndex(/*Your code here*/) {
-  /*Your code here*/
+function getReviewByIndex(array, number) {
+  for (let i=0; i<array.length; i++) {
+    return `${array[number].name} gave the restaurant a ${array[number].rating} star review, and their feedback was: ${array[number].feedback}`
+  }
 }
 
   
@@ -149,10 +150,12 @@ Use the getLastReview function below to do the following:
   NOTE: her feedback should not be blank if task 4 was done correctly
 */
 
-
-function getLastReview(/*Your code here*/) {
-  /*Your code here*/
+function getLastReview(array) {
+  for (let i=0; i<array.length; i++) {
+    return `${array[array.length-1].name} gave the restaurant a ${array[array.length-1].rating} star review, and their feedback was: ${array[array.length-1].feedback}`
+  }
 } 
+console.log(getLastReview(reviews))
 
 
 
